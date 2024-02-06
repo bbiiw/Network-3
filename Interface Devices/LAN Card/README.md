@@ -71,7 +71,7 @@ H/W path           Device        Class          Description
 /0/100/1f.6        eth0          network        Ethernet Connection (7) I219-LM
 ```
 
-> [!NOTE] ข้อกำหนด
+> [!WARNING]
 > - โดยปกติแล้วคำสั่ง `lshw` อาจจะยังไม่ได้ถูกติดตั้งในระบบ ใช้คำสั่ง
 >   - `sudo apk add lshw` บน Alpine Linux
 >   - `sudo dnf install lshw` หรือ `sudo yum install lshw` บน RHEL
@@ -80,7 +80,9 @@ H/W path           Device        Class          Description
 >   - `sudo pacman -S lshw` บน Arch Linux 
 >   - เพื่อติดตั้ง `lshw`
 
+___
 
+คำสั่ง `ifconfig` ใช้เพื่อแสดงหรือปรับแต่งการตั้งค่าของnetwork interface บนเครื่องคอมพิวเตอร์ และสามารถดูข้อมูลเกี่ยวกับ network interface ได้ เช่น IP address, MAC address, network mask เป็นต้น
 
 
 
