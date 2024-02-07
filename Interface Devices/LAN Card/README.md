@@ -4,9 +4,15 @@
 
 ## หลักการทำงาน 
 
-### ตรวจสอบสถานะ
 
-ใช้คำสั่ง `lspci` ใน Linux เพื่อแสดงรายการของ network card พิมพ์คำสั่ง `lspci` ตามด้วยคำสั่ง `egrep` เพื่อกรองอุปกรณ์ที่เกี่ยวข้อง :
+## `lspci` Command
+
+### Syntax ของคำสั่ง `lspci`:
+```
+lspci [options]
+```
+
+ใช้คำสั่ง `lspci` ใน Linux เพื่อแสดงรายการของ network card พิมพ์คำสั่ง `lspci` ตามด้วยคำสั่ง `egrep` เพื่อกรองอุปกรณ์ที่เกี่ยวข้อง
 
 ```
 lspci | egrep -i --color 'network|ethernet'
@@ -22,12 +28,14 @@ lspci | egrep -i --color 'network|ethernet|wireless|wi-fi'
 
 ---
 
-คำสั่ง `lshw` สามารถดึงข้อมูลรายละเอียดเกี่ยวกับการกำหนดค่า hardware ของเครื่องได้ รวมถึงข้อมูลเกี่ยวกับ network card :
+## `lshw` Command
+
+ใช้คำสั่ง `lshw` สามารถดึงข้อมูลรายละเอียดเกี่ยวกับการกำหนดค่า hardware ของเครื่องได้ รวมถึงข้อมูลเกี่ยวกับ network card
 
 ```
 lshw -class network
 ```
-ผลลัพธ์แสดงรายละเอียดข้อมูล hardware ที่เกี่ยวกับ network card บน Linux :
+ผลลัพธ์แสดงรายละเอียดข้อมูล hardware ที่เกี่ยวกับ network card บน Linux
 ```
   *-network DISABLED      
        description: Wireless interface
@@ -62,7 +70,11 @@ lshw -class network
 ```
 
 แสดงผลลัพธ์แบบสั้น ใช้คำสั่ง
-`sudo lshw -class network -short`
+
+```
+sudo lshw -class network -short
+```
+
 ```
 [sudo] password for vivek:
 H/W path           Device        Class          Description
@@ -72,17 +84,52 @@ H/W path           Device        Class          Description
 ```
 
 > [!WARNING]
-> - โดยปกติแล้วคำสั่ง `lshw` อาจจะยังไม่ได้ถูกติดตั้งในระบบ ใช้คำสั่ง
+> - โดยปกติแล้วคำสั่ง `lshw` อาจจะยังไม่ได้ถูกติดตั้งในระบบ ใช้คำสั่งดังนี้ เพื่อติดตั้ง `lshw`
 >   - `sudo apk add lshw` บน Alpine Linux
 >   - `sudo dnf install lshw` หรือ `sudo yum install lshw` บน RHEL
 >   - `sudo apt install lshw` หรือ `sudo apt-get install lshw` บน Debian Ubuntu
 >   - `sudo zypper install lshw` บน SUSE
 >   - `sudo pacman -S lshw` บน Arch Linux 
->   - เพื่อติดตั้ง `lshw`
 
-___
+---
 
-คำสั่ง `ifconfig` ใช้เพื่อแสดงหรือปรับแต่งการตั้งค่าของnetwork interface บนเครื่องคอมพิวเตอร์ และสามารถดูข้อมูลเกี่ยวกับ network interface ได้ เช่น IP address, MAC address, network mask เป็นต้น
+## `ifconfig` Command
+
+### Syntax ของคำสั่ง `ifconfig`:
+```
+ifconfig [interface] [options]
+```
+
+คำสั่ง `ifconfig` คือการกำหนดค่า interface และใช้เพื่อแสดงข้อมูลการกำหนดค่าเครือข่าย บนเครื่องคอมพิวเตอร์ และสามารถดูข้อมูลเกี่ยวกับ network interface ได้ เช่น IP address, MAC address, network mask เป็นต้น
+
+```
+ifconfig
+```
+
+![](../../image/ifconfig.png)
+
+
+คำสั่งนี้แสดงผลลัพธ์รายละเอียดซึ่งรวมถึงข้อมูลเกี่ยวกับ network interface ทั้งหมดที่กำลังทำงาน เช่น ชื่อinterface, ที่อยู่ hardware, ที่อยู่ IP และรายละเอียดการกำหนดค่าอื่น ๆ ของทุกๆ interface ที่ทำงานอยู่ในปัจจุบัน
+
+---
+
+## `ip` Command
+
+### Syntax ของคำสั่ง `ip`:
+
+```
+ip [options] object [command]
+```
+
+คำสั่ง ip แตกต่างจาก ifconfig ในหลายทางสำคัญ โดยที่สำคัญที่สุดคือผ่านฟังก์ชั่นและตัวเลือกที่เพิ่มขึ้น มีความสามารถในการปรับแต่งและควบคุมการเชื่อมต่อเครือข่ายของระบบได้โดยใช้คำสั่งเพียงคำสั่งเดียว รูปแบบของคำสั่ง ip มีดังนี้:
+
+```
+ip addr show
+```
+
+![](../../image/ip.png)
+
+ในตัวอย่างนี้ ทั้งคำสั่ง `ifconfig` และ `ip` ถูกใช้เพื่อแสดงข้อมูลทุก interface บนระบบ
 
 
 
@@ -92,6 +139,7 @@ ___
 - https://www.baeldung.com/linux/list-network-cards
 - https://www.baeldung.com/linux/network-interface-configure
 - https://amod-kadam.medium.com/linux-network-interface-s-minimal-know-how-helped-me-a-lot-168547b471d9
+- https://content.netdevgroup.com/contents/linux-essentials/pvycrLF82S/
 
 
 
