@@ -42,7 +42,7 @@ Linux kernel รองรับ routing protocol หลายๆตัว รว
 
 `$ yum install net-tools`
 
-![alt text](../Network-3/image/routing1.png)
+![alt text](../image/routing1.png)
 
 การมีที่อยู่ IP จะทำให้ระบบของคุณสามารถสื่อสารกับระบบอื่นในเครือข่ายเดียวกันได้ และด้วยอุปกรณ์ routing คุณสามารถสื่อสารกับระบบในเครือข่ายอื่นได้
 
@@ -62,8 +62,8 @@ Linux kernel รองรับ routing protocol หลายๆตัว รว
 
 `$ ip route show`
 
-![alt text](../Network-3/image/routing2.png)
-![alt text](../Network-3/image/routing3.png)
+![alt text](../image/routing2.png)
+![alt text](../image/routing3.png)
 
 คำสั่ง route หรือ netstat -r จะแสดงตารางเส้นทางการเชื่อมต่อ;
 โดย -n จะแสดงผลลัพธ์เฉพาะเป็นที่อยู่ IP เท่านั้น และไม่พยายามทำการค้นหาชื่อ DNS ซึ่งจะแทนที่ที่อยู่ IP ด้วยชื่อโฮสต์หากมีอยู่
@@ -79,7 +79,7 @@ Flag ใน Flag column แสดงว่า เส้นทางนั้น 
 
 โดยหลายๆชื่อที่มักจะอยู่ในไฟล์ /etc/hosts คือ localhost/ localhost.localdomain  ทั้งสองนี้ใช้เพื่ออ้างถึงเครื่องปัจจุบัน
 
-![alt text](../Network-3/image/routing4.png)
+![alt text](../image/routing4.png)
 
 ลองทำการ cat แสดงเนื้อหาในไฟล์  /etc/hosts เพื่อดู ip ที่ถูกแปลงเป็น hostname
 
