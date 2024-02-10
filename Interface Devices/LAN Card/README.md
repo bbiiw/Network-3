@@ -51,12 +51,13 @@ Network Interface Card (NIC) มีบทบาทหลากหลายที
 
 ## หลักการทำงานของ LAN Card บน Linux
 
+### ตรวจสอบการติดตั้ง LAN Card :
+ให้เช็คว่า LAN card ได้รับการติดตั้งแล้วหรือไม่ ในส่วนมากจะมีการรับรองจาก Linux ในการตรวจจับและติดตั้งได้โดยอัตโนมัติ
 
+ให้ใช้คำสั่ง `lspci` เพื่อแสดงรายการของ hardware ทั้งหมดที่ติดตั้งบนระบบ
 
+### Syntax ของคำสั่ง `lspci` :
 
-## `lspci` Command
-
-### Syntax ของคำสั่ง `lspci`:
 ```
 lspci [options]
 ```
@@ -76,8 +77,6 @@ lspci | egrep -i --color 'network|ethernet|wireless|wi-fi'
 ```
 
 ---
-
-## `lshw` Command
 
 ใช้คำสั่ง `lshw` สามารถดึงข้อมูลรายละเอียดเกี่ยวกับการกำหนดค่า hardware ของเครื่องได้ รวมถึงข้อมูลเกี่ยวกับ network card
 
@@ -142,13 +141,14 @@ H/W path           Device        Class          Description
 
 ---
 
-## `ifconfig` Command
+### การกำหนดค่า IP :
 
-### Syntax ของคำสั่ง `ifconfig`:
+หาก LAN card ได้รับการติดตั้งและถูกตรวจจับอย่างถูกต้อง ต้องกำหนดค่า IP address และค่าอื่น ๆ ให้กับ LAN card นั้น ใช้คำสั่ง `ifconfig` หรือ `ip` เพื่อกำหนดค่า IP address
+
+### Syntax ของคำสั่ง `ifconfig` :
 ```
 ifconfig [interface] [options]
 ```
-
 คำสั่ง `ifconfig` คือการกำหนดค่า interface และใช้เพื่อแสดงข้อมูลการกำหนดค่าเครือข่าย บนเครื่องคอมพิวเตอร์ และสามารถดูข้อมูลเกี่ยวกับ network interface ได้ เช่น IP address, MAC address, network mask เป็นต้น
 
 ```
@@ -156,13 +156,12 @@ ifconfig
 ```
 
 ![](../../image/ifconfig.png)
-
+Source : https://content.netdevgroup.com/contents/linux-essentials/pvycrLF82S/
 
 คำสั่งนี้แสดงผลลัพธ์รายละเอียดซึ่งรวมถึงข้อมูลเกี่ยวกับ network interface ทั้งหมดที่กำลังทำงาน เช่น ชื่อinterface, ที่อยู่ hardware, ที่อยู่ IP และรายละเอียดการกำหนดค่าอื่น ๆ ของทุกๆ interface ที่ทำงานอยู่ในปัจจุบัน
 
 ---
 
-## `ip` Command
 
 ### Syntax ของคำสั่ง `ip`:
 
@@ -170,15 +169,27 @@ ifconfig
 ip [options] object [command]
 ```
 
-คำสั่ง ip แตกต่างจาก ifconfig ในหลายทางสำคัญ โดยที่สำคัญที่สุดคือผ่านฟังก์ชั่นและตัวเลือกที่เพิ่มขึ้น มีความสามารถในการปรับแต่งและควบคุมการเชื่อมต่อเครือข่ายของระบบได้โดยใช้คำสั่งเพียงคำสั่งเดียว รูปแบบของคำสั่ง ip มีดังนี้:
+คำสั่ง ip แตกต่างจาก ifconfig ในหลายทางสำคัญ โดยที่สำคัญที่สุดคือผ่านฟังก์ชั่นและตัวเลือกที่เพิ่มขึ้น มีความสามารถในการปรับแต่งและควบคุมการเชื่อมต่อเครือข่ายของระบบได้โดยใช้คำสั่งเพียงคำสั่งเดียว รูปแบบของคำสั่ง ip มีดังนี้
 
 ```
 ip addr show
 ```
 
 ![](../../image/ip.png)
+Source : https://content.netdevgroup.com/contents/linux-essentials/pvycrLF82S/
 
 ในตัวอย่างนี้ ทั้งคำสั่ง `ifconfig` และ `ip` ถูกใช้เพื่อแสดงข้อมูลทุก interface บนระบบ
+
+## ตรวจสอบ Network บน Linux Server
+
+ในการตรวจสอบ Network บน Linux Server นั้น สิ่งที่ควรจะรู้ได้แก่ IP Address, Subnet Mask, IP Gateway และ IP DNS นอกจากการตรวจสอบแล้วต้องสามารถทำการแก้ไขได้ด้วย ดังรูปตามตัวอย่าง
+
+![](https://www.jodoi.org/images/default_gateway1.jpg)
+Source: https://www.jodoi.org/Network%20on%20linux.html
+
+การตรวจสอบ IP Address และ Subnet Mask
+เราสามารถตรวจสอบ IP Address ได้ด้วย command `ifconfig` หรือถ้ามี LAN Card หลายใบ สามารถระบุได้ด้วย command `ifconfig eth0` ( eth0 หมายถึง Lan Card ใบที่ 1 )
+
 
 
 
