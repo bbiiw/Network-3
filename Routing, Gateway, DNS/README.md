@@ -24,8 +24,8 @@ Linux kernel รองรับ routing protocol หลายๆตัว รว
 
 <br>
 
-## **หลักการทำงานและการconfig ของ routing**
----
+## **หลักการทำงานและการ config ของ routing**
+
 1) **ติดตั้งTools ในการใช้ route commands**
 2) **ตรวจสอบเส้นทาง route ที่มี**
 3) **เปิดใช้งาน ip forwarding**
@@ -41,7 +41,7 @@ Linux kernel รองรับ routing protocol หลายๆตัว รว
 
 `$ apt-get install net-tools`
 
-**ในกรณีที่ใช้ redhatdistribution**
+**ในกรณีที่ใช้ redhat distribution**
 
 `$ yum install net-tools`
 
