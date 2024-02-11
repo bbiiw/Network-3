@@ -19,7 +19,7 @@ Source : https://www.amazon.com/Panda-Wireless-PAU06-300Mbps-Adapter/dp/B00JDVRC
 - `ส่วนที่สอง` คือการเลือกวิธีการจัดการการเชื่อมต่อไร้สาย
 
 
-## ตรวจสอบสถานะ Driver
+## 1) ตรวจสอบสถานะ Driver
 เพื่อตรวจสอบว่า Driver สำหรับการ์ดถูกโหลดหรือไม่ ให้ตรวจสอบผลลัพธ์จากคำสั่ง `lspci -k` หรือ `lsusb -v` ขึ้นอยู่กับว่าการ์ดเชื่อมต่อด้วย PCI(e) หรือ USB
 
 ```
@@ -83,14 +83,14 @@ dmesg | grep firmware
 [   12.430341] iwlwifi 0000:02:00.0: Detected Intel(R) Corporation WiFi Link 5100 AGN, REV=0x6B
 ```
 
-## รับข้อมูลสถานะของ interface
+## 2) รับข้อมูลสถานะของ interface
 เพื่อตรวจสอบสถานะการเชื่อมต่อ ใช้คำสั่งต่อไปนี้ :
 
 ```
 iw dev interface link
 ```
 
-## เปิดใช้งาน interface
+### เปิดใช้งาน interface
 
 บางการ์ดต้องการให้อินเตอร์เฟซของ kernel ถูกเปิดใช้งานก่อนที่คุณจะสามารถใช้ iw หรือ wireless_tools ได้
 
@@ -110,7 +110,7 @@ ip link show interface
 | `iw dev wlan0 connect your_essid` | `iwconfig wlan0 essid your_essid` | Connecting to open network.                     |
 | `iw dev wlan0 connect your_essid 2432` | `iwconfig wlan0 essid your_essid freq 2432M` | 	Connecting to open network specifying channel.     |
 
-## ค้นหา Access Points
+## 3) ค้นหา Access Points
 ใช้คำสั่ง `iw dev interface scan | less` เพื่อดู Access Points ที่มีทั้งหมด
 
 ```
@@ -146,7 +146,7 @@ BSS 2/1 (on wlan0)
   - หากมีบล็อก `RSN` แสดงว่าเครือข่ายได้รับการป้องกันโดยโปรโตคอล Robust Security Network (WPA2).
   - หากมีบล็อก `WPA` แสดงว่าเครือข่ายได้รับการป้องกันโดยโปรโตคอล Wi-Fi Protected Access (WPA).
 
-## ตั้งค่าโหมดการทำงาน
+## 4) ตั้งค่าโหมดการทำงาน
 ตั้งค่าโหมดการทำงานที่เหมาะสมของการ์ดไร้สาย โดยเฉพาะอย่างยิ่ง,หากกำลังจะเชื่อมต่อกับเครือข่าย ad-hoc จะต้องตั้งค่าโหมดการทำงานเป็น `ibss`
 
 โหมด Ad-hoc ช่วยให้คอมพิวเตอร์สามารถเชื่อมต่อกันโดยตรงโดยไม่ต้องใช้ Access Point
