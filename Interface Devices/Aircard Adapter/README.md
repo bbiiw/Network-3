@@ -230,8 +230,7 @@ at!scpaddr=<pid>
 - https://www.cyberciti.biz/faq/linux-list-network-cards-command/
 - https://www.lifewire.com/what-is-an-aircard-818325
 - https://www.geeksforgeeks.org/iwconfig-command-in-linux-with-examples/
--https://www.lifewire.com/what-is-an-aircard-818325
-AirCard USB Modem User Guide (netgear.com)
+- https://www.lifewire.com/what-is-an-aircard-818325
 - https://th.linux-console.net/?p=19836
 - https://montienfocus.blogspot.com/2015/12/raspberry-pi-aircard-3g.html
 - https://www.downloads.netgear.com/files/aircard/2131232_AirCard_USB_Modem_User_Guide_r9.pdf
