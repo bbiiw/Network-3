@@ -184,6 +184,14 @@ Interface wlan0
 - `nmcli device connect <SSID>`: เชื่อมต่อกับ Wireless Network - โดยระบุ SSID
 - `iw dev <interface> connect <SSID>`: เชื่อมต่อกับ Wireless Network โดยระบุ SSID
 
+> [!WARNING]
+>
+> **ข้อควรระวังการใช้งาน Wireless Adapter**
+> - การเลือก Wireless adapter ที่รองรับ
+>   - ตรวจสอบให้แน่ใจว่า Wireless adapter ที่คุณเลือกนั้นรองรับ Linux 
+> - การกำหนดค่า Wireless adapter
+>   - หลังจากติดตั้งไดรเวอร์แล้ว ต้องกำหนดค่า Wireless adapter สามารถทำได้โดยใช้ Network Manager หรือ CLI (Command Line Interface)
+
 ## 📚 Reference
 
 - https://wiki.archlinux.org/title/Network_configuration/Wireless
