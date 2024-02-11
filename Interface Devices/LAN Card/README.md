@@ -61,9 +61,6 @@ Network Interface Card (NIC) มีบทบาทหลากหลายที
 
   - NIC มีความสามารถในการสนับสนุนการโอนข้อมูลด้วยวิธีต่าง ๆ เช่น DMA (Direct Memory Access) ช่วยให้ NIC สามารถโอนข้อมูลระหว่าง RAM ของคอมพิวเตอร์และ Buffer ของ NIC โดยไม่ต้องผ่านทาง CPU วิธีนี้ช่วยลดการใช้ทรัพยากรของ CPU ในกระบวนการถ่ายโอนข้อมูล
 
-
-
-
 ## หลักการทำงานของ LAN Card บน Linux
 
 ## ตรวจสอบการติดตั้ง LAN Card
@@ -211,7 +208,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 ## การเปิดใช้งาน (UP) และปิดใช้งาน (DOWN) พอร์ต Network Interface Card (NIC) บน Linux
 
-### `เปิดใช้งาน NIC eth0`
+### เปิดใช้งาน NIC eth0
 ```
 ifconfig eth0 up
 ```
@@ -228,7 +225,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
 ```
 ___
-### `ปิดใช้งาน NIC eth0`
+### ปิดใช้งาน NIC eth0
 ```
 ifconfig eth0 down
 ```
@@ -246,7 +243,9 @@ eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
 ```
 
-> [!WARNIG] ข้อควรระวังการใช้งาน LAN Card
+> [!WARNIG]
+>
+> **ข้อควรระวังการใช้งาน LAN Card**
 > - การเลือก LAN Card ที่รองรับ
 >   - ตรวจสอบให้แน่ใจว่า LAN Card ที่คุณเลือกนั้นรองรับ Linux
 > - การกำหนดค่า LAN Card
