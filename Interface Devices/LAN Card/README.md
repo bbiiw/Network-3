@@ -243,7 +243,9 @@ eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
 ```
 
-> [!WARNING] **ข้อควรระวังการใช้งาน LAN Card**
+> [!WARNING]
+>
+> **ข้อควรระวังการใช้งาน LAN Card**
 > - การเลือก LAN Card ที่รองรับ
 >   - ตรวจสอบให้แน่ใจว่า LAN Card ที่คุณเลือกนั้นรองรับ Linux
 > - การกำหนดค่า LAN Card
